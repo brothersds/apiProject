@@ -38,5 +38,10 @@ class GoogleMapsApi():
 
     """Метод для проверки новой локации"""
     @staticmethod
-    def get_new_place():
-
+    def get_new_place(place_id):
+        get_resourse = "/maps/api/place/get/json"  # ресурс метода GET
+        get_url = f'{base_url}{get_resourse}{key}&place_id={place_id}'
+        print(get_url)
+        result_get = HttpMethods.get(get_url)
+        print(result_get.text)
+        return result_get
