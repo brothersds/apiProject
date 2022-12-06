@@ -35,3 +35,8 @@ class GoogleMapsApi():
         result_post = HttpMethods.post(post_url, json_for_create_new_place)
         print(result_post.text)
         return result_post
+
+    """Метод для проверки новой локации"""
+    @staticmethod
+    def get_new_place():
+
