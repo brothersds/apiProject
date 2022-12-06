@@ -14,5 +14,11 @@ class TestCreatePlace():
         check_post = result_post.json()
         place_id = check_post.get("place_id")
 
-        print("Метод GET")
-        result_post: Response = GoogleMapsApi.get_new_place(place_id)
+        print("Метод GET POST")
+        result_get: Response = GoogleMapsApi.get_new_place(place_id)
+
+        print("Метод PUT")
+        result_put: Response = GoogleMapsApi.put_new_place(place_id)
+
+        print("Метод GET PUT")
+        result_get: Response = GoogleMapsApi.get_new_place(place_id)

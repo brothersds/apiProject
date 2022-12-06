@@ -39,6 +39,7 @@ class GoogleMapsApi():
     """Метод для проверки новой локации"""
     @staticmethod
     def get_new_place(place_id):
+
         get_resourse = "/maps/api/place/get/json"  # ресурс метода GET
         get_url = f'{base_url}{get_resourse}{key}&place_id={place_id}'
         print(get_url)
@@ -49,5 +50,15 @@ class GoogleMapsApi():
     """Метод для изменения новой локации"""
     @staticmethod
     def put_new_place(place_id):
-        put_resourse = "/maps/api/place/update/json"  # ресурс метода PUT
 
+        put_resourse = "/maps/api/place/update/json"  # ресурс метода PUT
+        put_url = base_url + put_resourse + key
+        print(put_url)
+        json_for_update_new_location = {
+            "place_id": place_id,
+            "address": "100 Lenina street, RU",
+            "key": key.partition("=")[2]
+        }
+        result_put = HttpMethods.put(put_url, json_for_update_new_location)
+        print(result_put.text)
+        return result_put
