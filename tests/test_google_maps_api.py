@@ -1,5 +1,5 @@
 import json
-
+import allure
 from requests import Response
 from utils.checking import Checking
 from utils.api import GoogleMapsApi
@@ -7,8 +7,10 @@ from utils.api import GoogleMapsApi
 """Создание, изменение и удаление новой локации"""
 
 
+@allure.epic("Test create place")
 class TestCreatePlace():
 
+    @allure.description("Test create, update and delete new place")
     def test_create_new_place(self):
 
         print("\nМетод POST")
